@@ -8,7 +8,7 @@
 TEST(hasTriangle,
      Given_an_array_with_size_lesser_than_3_When_checking_for_triangles_Then_returns_false)
 {
-	ASSERT_THAT(0, 0);
+	ASSERT_THAT(hasTriangles({}), false);
 }
 
 int main(int argc, char **argv)
