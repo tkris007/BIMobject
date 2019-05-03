@@ -104,20 +104,6 @@ TEST(optimization,
 	ASSERT_THAT(timeopt.count(), ::testing::Lt(time.count()));
 }
 
-TEST(optimization,
-     optimization2)
-{
-	std::vector<int> sides;
-	sides.resize(1000, 0);
-	sides[99] = sides[98] = sides[97] = 1;
-	auto start = std::chrono::high_resolution_clock::now();
-	hasTriangles(sides);
-	auto time = std::chrono::high_resolution_clock::now() - start;
-
-
-	ASSERT_THAT(time.count(), ::testing::Lt(0));
-}
-
 
 int main(int argc, char **argv)
 {
