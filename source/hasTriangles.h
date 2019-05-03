@@ -1,4 +1,4 @@
 #include <vector>
 
 bool hasTriangles(const std::vector<int> &coords);
-bool hasTrianglesOptimized(const std::vector<int> &sides);
+bool hasTrianglesOptimized(std::vector<int> sides);

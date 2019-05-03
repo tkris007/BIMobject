@@ -1,5 +1,6 @@
 #include "hasTriangles.h"
 
+#include <algorithm>
 
 inline bool isTriangle(int aSide, int bSide, int cSide)
 {
@@ -49,30 +50,20 @@ bool hasTriangles(const std::vector<int> &sides)
 }
 
 
-bool hasTrianglesOptimized(const std::vector<int> &sides)
+bool hasTrianglesOptimized(std::vector<int> sides)
 {
 	if(sides.size() < 3)
 	{
 		return false;
 	}
 
+	std::sort(sides.begin(), sides.end());
+
 	for(size_t i = 0; i < sides.size() - 2; ++i)
 	{
-		auto aSide = sides[i];
-
-		for(size_t j = i + 1; j < sides.size() - 1; ++j)
+		if(sides[i] + sides[i + 1] > sides[i + 2])
 		{
-			auto bSide = sides[j];
-
-			for(size_t k = j + 1; k < sides.size(); ++k)
-			{
-				if(!isTriangle(aSide, bSide, sides[k]))
-				{
-					continue;
-				}
-
-				return true;
-			}
+			return true;
 		}
 	}
 
