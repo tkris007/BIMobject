@@ -67,6 +67,11 @@ TEST(hasTriangleAcceptance,
 	ASSERT_THAT(hasTriangles({10, 50, 5, 1}), false);
 }
 
+TEST(hasTriangleAcceptance,
+     Given_a_modified_example_data_with_no_triangles_in_it_When_checking_for_triangles_Then_returns_true)
+{
+	ASSERT_THAT(hasTriangles({10, 5, 50, 1}), false);
+}
 
 int main(int argc, char **argv)
 {
